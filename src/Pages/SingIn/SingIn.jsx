@@ -1,9 +1,10 @@
+import { Link } from 'react-router-dom';
 import  loginLogo from '../../../src/assets/image/6310507.jpg'
-
+// import { TbFidgetSpinner } from 'react-icons/tb'
 const SingIn = () => {
     return (
         <div className="relative overflow-hidden">
-        <div className="mx-auto max-w-screen-md py-12 px-4 sm:px-6 md:max-w-screen-xl md:py-20 lg:py-32 md:px-8">
+        <div className="mx-auto max-w-screen-md py-8 px-4 sm:px-6 md:max-w-screen-xl md:py-8 lg:py-12 md:px-8">
           <div className="md:pr-8 md:w-1/2 xl:pr-0 xl:w-5/12">
             <h1 className="text-3xl text-gray-800 font-bold md:text-4xl md:leading-tight lg:text-5xl lg:leading-tight dark:text-gray-200">
               Please Sing In your{" "}
@@ -76,9 +77,10 @@ const SingIn = () => {
                 <input
                   type="password"
                   name="password"
+                  placeholder='*******'
                   id="hs-hero-password-2"
                   className="py-3 px-4 block w-full border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 sm:p-4 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400"
-                  placeholder="Password"
+                  
                 />
               </div>
 
@@ -87,10 +89,20 @@ const SingIn = () => {
                   type="submit"
                   className="py-3 px-4 inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold bg-green-500 text-white hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all text-sm dark:focus:ring-offset-gray-800 sm:p-4"
                 >
-                  Log in
+                  {/* {loading ? (
+                <TbFidgetSpinner className='animate-spin m-auto' />
+              ) : (
+                'Sing In'
+              )} */}
+              Sing In
                 </button>
               </div>
-             
+              <p className="text-center mt-5 ">
+                Do not have an account ?
+                <Link to={"/singup"} className="text-green-600">
+                 Sing Up
+                </Link>
+              </p>
             </form>
           </div>
         </div>

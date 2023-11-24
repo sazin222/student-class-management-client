@@ -4,6 +4,7 @@ import {
 import Main from "../Layout/Main";
 import Home from "../Pages/Home/Home";
 import SingIn from "../Pages/SingIn/SingIn";
+import SingUp from "../Pages/SingUp/SingUp";
 
    
   export const Routes = createBrowserRouter([
@@ -21,6 +22,10 @@ import SingIn from "../Pages/SingIn/SingIn";
         {
           path: '/singin',
           element: <SingIn></SingIn>
+        },
+        {
+          path: '/singup',
+          element: <SingUp></SingUp>
         }
       ]);
 
