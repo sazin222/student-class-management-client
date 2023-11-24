@@ -3,6 +3,7 @@ import {
   } from "react-router-dom";
 import Main from "../Layout/Main";
 import Home from "../Pages/Home/Home";
+import SingIn from "../Pages/SingIn/SingIn";
 
    
   export const Routes = createBrowserRouter([
@@ -17,6 +18,10 @@ import Home from "../Pages/Home/Home";
             }
           ]
         },
+        {
+          path: '/singin',
+          element: <SingIn></SingIn>
+        }
       ]);
 
 

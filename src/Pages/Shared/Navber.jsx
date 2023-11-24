@@ -23,6 +23,7 @@ const Navber = () => {
          
            
             <NavLink to={"/creativeStudy"}> Creative Study</NavLink>
+            <NavLink to={"/singin"}> Sing In</NavLink>
           </>)
     return (
         <header className="flex
