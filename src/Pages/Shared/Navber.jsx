@@ -28,7 +28,7 @@ const Navber = () => {
         <header className="flex
          bg-opacity-40 font-bold
          max-w-screen-xl 
-         flex-wrap sm:justify-start sm:flex-nowrap z-50 w-full bg-white text-black border-b border-gray-200 text-sm py-4 sm:py-0 dark:bg-gray-800 border-hidden">
+         flex-wrap sm:justify-start sm:flex-nowrap z-50 w-full bg-white text-black border-b border-gray-200 text-sm py-4 sm:py-0 dark:bg-gray-800 ">
         <nav
           className="relative max-w-7xl w-full mx-auto px-5 sm:flex sm:items-center sm:justify-between sm:px-6 lg:px-8"
           aria-label="Global"
