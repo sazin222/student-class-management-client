@@ -48,7 +48,7 @@ const SingIn = () => {
               </button>
             </div>
 
-            <div className="py-6 flex items-center text-gray-400 uppercase before:flex-[1_1_0%] before:border-t before:mr-6 after:flex-[1_1_0%] after:border-t after:ml-6 dark:text-gray-500 dark:before:border-gray-600 dark:after:border-gray-600"></div>
+            <div className="py-6 flex items-center text-gray-400 uppercase before:flex-[1_1_0%] before:border-t before:mr-6 after:flex-[1_1_0%] after:border-t after:ml-6 dark:text-gray-500 dark:before:border-gray-600 dark:after:border-gray-600">Or</div>
 
             <form >
               <div className="mb-4">
@@ -99,7 +99,7 @@ const SingIn = () => {
               </div>
               <p className="text-center mt-5 ">
                 Do not have an account ?
-                <Link to={"/singup"} className="text-green-600">
+                <Link to={"/singup"} className="text-green-600 border-b-2">
                  Sing Up
                 </Link>
               </p>
