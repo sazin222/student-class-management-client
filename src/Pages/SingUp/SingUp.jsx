@@ -1,17 +1,59 @@
 import { useForm } from "react-hook-form"
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import useAuth from "../../hooks/useAuth";
+import Swal from "sweetalert2";
+import useAxiosPublic from "../../hooks/useAxiosPublic";
 
 
 const SingUp = () => {
-    
+  const axiosPublic = useAxiosPublic()
     const {
         register,
+        reset,
         handleSubmit,
         formState: { errors },
       } = useForm()
+      const {createUser,updateUserProfile}= useAuth()
+      const navigate = useNavigate()
       const onSubmit = (data) =>{
         console.log(data);
+        createUser(data.email, data.password)
+        .then(result=>{
+          const LoggedUser= result.user
+          console.log(LoggedUser.email);
+          updateUserProfile(data.name, data.photoURL)
+          .then(()=>{ 
+            const userInfo={
+              name: data.name,
+              email: data.email,
+              photo: data.PhotoURL,
+              role:'student',
+              
+            }
+            
+            axiosPublic.post('/Students', userInfo)
+            .then(res=>{
+              if(res.data.insertedId){
+                console.log('user added the database ');
+                reset()
+                Swal.fire({
+                  position: "top-center",
+                  icon: "success",
+                  title: "Your account created Successfully",
+                  showConfirmButton: false,
+                  timer: 1500
+                }); 
+                navigate('/')
+              }
+            })
+          
+          })
+          .catch(error=>{
+            console.log(error);
+          })
+        })
       }
+    
     return (
         <div className="relative overflow-hidden">
         <div className="mx-auto max-w-screen-md py-7 px-4 sm:px-6 md:max-w-screen-xl md:py-9 lg:py-12 md:px-8">
@@ -55,7 +97,6 @@ const SingUp = () => {
                  )}
               </div>
               
-      
               <div className="grid">
                 <button type="submit" className="py-3 px-4 inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold bg-green-500 text-white hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all text-sm dark:focus:ring-offset-gray-800 sm:p-4">
 

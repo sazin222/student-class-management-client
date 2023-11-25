@@ -6,7 +6,7 @@ import Banner3 from './Banner3';
 
 const Banner = () => {
     return (
-        <Carousel className='text-center '>
+        <Carousel  showThumbs={false}  className='text-center '>
         <div >
             <div className="relative overflow-hidden">
       <div className="max-w-[85rem] mx-auto px-2 sm:px-3 lg:px-4 ">
