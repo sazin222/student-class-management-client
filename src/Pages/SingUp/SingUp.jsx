@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import Swal from "sweetalert2";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
+import { TbFidgetSpinner } from "react-icons/tb";
 
 
 const SingUp = () => {
@@ -13,7 +14,7 @@ const SingUp = () => {
         handleSubmit,
         formState: { errors },
       } = useForm()
-      const {createUser,updateUserProfile}= useAuth()
+      const {createUser,updateUserProfile,loading}= useAuth()
       const navigate = useNavigate()
       const onSubmit = (data) =>{
         console.log(data);
@@ -99,8 +100,13 @@ const SingUp = () => {
               
               <div className="grid">
                 <button type="submit" className="py-3 px-4 inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold bg-green-500 text-white hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all text-sm dark:focus:ring-offset-gray-800 sm:p-4">
-
-                   Sing Up
+                   
+                {loading ? (
+                <TbFidgetSpinner className='animate-spin m-auto' />
+              ) : (
+                ' Sing Up'
+              )}
+                  
                     </button>
               </div>
               <p className="text-center mt-3 "> Already have an Account ? <Link to={"/singin"} className="text-green-600 border-b-2">Sing In</Link></p>
