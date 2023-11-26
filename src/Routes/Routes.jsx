@@ -39,7 +39,7 @@ import CreativeStudy from "../Pages/Home/CreativeStudy/CreativeStudy";
           element: <SingUp></SingUp>
         },
         {
-          path:'dashboard',
+          path:'/dashboard',
           element: <PrivetRoute>
             <Dashboard></Dashboard>
           </PrivetRoute>,

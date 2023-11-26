@@ -34,10 +34,30 @@ const Navber = () => {
             
             >Home</NavLink>
           
-            <NavLink to={"/allClasses"}>All Classes</NavLink>
+            <NavLink to={"/allClasses"}
+             className={({ isActive, isPending }) =>
+             isPending
+               ? "pending"
+               : isActive
+               ? "border-b-4 border-blue-500 text-green-500  font-bold "
+               : ""
+           }
+            >
+              All Classes
+              </NavLink>
          
            
-            <NavLink to={"/creativeStudy"}> Creative Study</NavLink>
+            <NavLink to={"/creativeStudy"}
+             className={({ isActive, isPending }) =>
+             isPending
+               ? "pending"
+               : isActive
+               ? "border-b-4 border-blue-500 text-green-500  font-bold "
+               : ""
+           }
+            > 
+            Creative Study
+            </NavLink>
            
           </>)
     return (
