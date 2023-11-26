@@ -4,10 +4,9 @@ import useAuth from '../../hooks/useAuth';
 import { useForm } from 'react-hook-form';
 import Swal from 'sweetalert2';
 import useAxiosPublic from '../../hooks/useAxiosPublic';
-import { TbFidgetSpinner } from 'react-icons/tb'
 const SingIn = () => {
   const axiosPublic = useAxiosPublic()
-  const {singIn, singInGoogle, loading}= useAuth()
+  const {singIn, singInGoogle, }= useAuth()
   const navigate = useNavigate()
     const location = useLocation()
    
@@ -151,11 +150,9 @@ const SingIn = () => {
                   type="submit"
                   className="py-3 px-4 inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold bg-green-500 text-white hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all text-sm dark:focus:ring-offset-gray-800 sm:p-4"
                 >
-                  {loading ? (
-                <TbFidgetSpinner className='animate-spin m-auto' />
-              ) : (
-                'Sing In'
-              )}
+                 
+                Sing In
+              
                 </button>
               </div>
               <p className="text-center mt-5 ">

@@ -17,17 +17,18 @@ const SingUp = () => {
       const {createUser,updateUserProfile,loading}= useAuth()
       const navigate = useNavigate()
       const onSubmit = (data) =>{
-        console.log(data);
+      console.log(data.phoneNumber);
         createUser(data.email, data.password)
         .then(result=>{
           const LoggedUser= result.user
           console.log(LoggedUser.email);
-          updateUserProfile(data.name, data.photoURL)
+         updateUserProfile(data.name,data.photoURL )
           .then(()=>{ 
             const userInfo={
               name: data.name,
               email: data.email,
-              photo: data.PhotoURL,
+              photo: data.photoURL,
+              phone: data.phoneNumber,
               role:'student',
               
             }
@@ -77,9 +78,17 @@ const SingUp = () => {
               </div>
               <div className="mb-4">
                 <label htmlFor="hs-hero-password-2" className="block text-sm font-medium dark:text-white"><span className="sr-only">Photo Url</span></label>
-                <input type="text"  {...register("PhotoURL",{ required: true })}id="hs-hero-password-2" className="py-3 px-4 block w-full border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 sm:p-4 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400" placeholder="Photo Url "/>
+                <input type="text"  {...register("photoURL",{ required: true })}id="hs-hero-password-2" className="py-3 px-4 block w-full border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 sm:p-4 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400" placeholder="Photo Url "/>
                 {errors.PhotoURL&& <span className="text-red-600"> PhotoURL is required</span>}
               </div>
+
+              <div className="mb-4">
+                <label htmlFor="hs-hero-password-2" className="block text-sm font-medium dark:text-white"><span className="sr-only">Phone Number</span></label>
+                <input type="text"  {...register("phoneNumber",{ required: true })}id="hs-hero-password-2" className="py-3 px-4 block w-full border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 sm:p-4 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400" placeholder="Phone Number"/>
+                {errors.phoneNumber&& <span className="text-red-600"> Phone Number is required</span>}
+              </div>
+
+
       
               <div className="mb-4">
                 <label htmlFor="hs-hero-email-2" className="block text-sm font-medium dark:text-white"><span className="sr-only">Email address</span></label>

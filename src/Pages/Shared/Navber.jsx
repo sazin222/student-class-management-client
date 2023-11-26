@@ -1,11 +1,25 @@
 import { NavLink } from 'react-router-dom';
-import logo from '../../assets/image/logo1.png-removebg-preview.png'
-
+import logo from '../../assets/image/logo.png-removebg-preview.png'
+import useAuth from '../../hooks/useAuth';
+import {  useState } from 'react';
+import("preline");
 
 
 
 const Navber = () => {
+  const {logOut, user, } = useAuth()
+  console.log(user);
+  const [open, setOpen] = useState(false)
   
+   const handelLogout = ()=>{
+    logOut()
+    .then((result) => {
+      console.log(result.user);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+   }
     const navlinks = (
         <>
            
@@ -24,7 +38,7 @@ const Navber = () => {
          
            
             <NavLink to={"/creativeStudy"}> Creative Study</NavLink>
-            <NavLink to={"/singin"}> Sing In</NavLink>
+           
           </>)
     return (
         <header className="flex
@@ -38,8 +52,9 @@ const Navber = () => {
           <div className="flex items-center  justify-between">
             <div>
               <img className="w-16 lg:w-24" src={logo} alt="" />
+
             </div>
-  
+           
             <div className="sm:hidden">
             <button
               type="button"
@@ -81,7 +96,42 @@ const Navber = () => {
               <div className="flex text-base flex-col gap-y-4 gap-x-0 mt-5 sm:flex-row sm:items-center sm:gap-y-0 sm:gap-x-7 sm:mt-0 sm:pl-7 justify-center sm:justify-start">
                 {navlinks}
 
+            { user?.email ? <div className=''>
+              <div onClick={()=> setOpen(!open)} className="relative inline-block">
+        <img  className="inline-block cursor-pointer h-8 w-8 rounded-full" src={user?.photoURL} alt="Image Description"></img>
+        <span className="absolute bottom-0 end-0 block h-3 w-3 rounded-full ring-2 ring-white bg-teal-500"></span>
+         </div>
+          {
+            open && ( <div  className='flex bg-white p-4 flex-col space-y-3 absolute z-50'>
+              <span>{user?.displayName}</span>
+            <button  className="flex items-center gap-x-3.5 rounded-lg  text-gray-800 hover:bg-gray-100  focus:outline-none focus:bg-gray-100 dark:text-gray-500 dark:hover:bg-gray-700 dark:hover:text-gray-300 dark:focus:bg-gray-700" onClick={handelLogout}>
+            Log out
+          </button>
+              
+            <NavLink to={'/dashboard/MyEnrollClass'}>
+              Dashboard
+            </NavLink>
+           
+           
+          </div>)
+          }
+         
+
+              </div> : <NavLink
+                      to={"/singin"}
+                      className={({ isActive, isPending }) =>
+                        isPending
+                          ? "pending"
+                          : isActive
+                          ? "border-b-4 border-green-600 font-bold "
+                          : ""
+                      }
+                    >
+                      Sing In
+                    </NavLink>}
+
               </div>
+            
             </div> 
           </div>
         </nav>
