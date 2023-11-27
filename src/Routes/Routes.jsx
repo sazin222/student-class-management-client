@@ -15,6 +15,7 @@ import Users from "../Pages/Dashboard/Admin/Users/Users";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import AddClass from "../Pages/Dashboard/Teacher/AddClass";
 import Myclass from "../Pages/Dashboard/Teacher/Myclass";
+import UpdateDetails from "../Pages/Dashboard/Teacher/UpdateDetails";
 
    
   export const Routes = createBrowserRouter([
@@ -78,6 +79,11 @@ import Myclass from "../Pages/Dashboard/Teacher/Myclass";
             {
               path: 'myClass',
               element: <Myclass></Myclass>
+            },
+            {
+              path: 'updateDetails/:id',
+              element: <UpdateDetails></UpdateDetails>,
+              // loader: ({params})=> fetch(`http://localhost:5000/class/${params.id}`)
             }
           ]
         }
