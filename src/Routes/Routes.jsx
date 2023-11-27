@@ -10,12 +10,16 @@ import StudentProfile from "../Pages/Dashboard/StudentProfile";
 import PrivetRoute from "./PrivetRoutes";
 import MyEnrollClass from "../Pages/Dashboard/MyEnrollClass";
 import CreativeStudy from "../Pages/Home/CreativeStudy/CreativeStudy";
+import TeacherRequest from "../Pages/Dashboard/Admin/TeacherRequest";
+import Users from "../Pages/Dashboard/Admin/Users/Users";
+import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 
    
   export const Routes = createBrowserRouter([
         {
           path: "/",
           element: <Main></Main>,
+          errorElement: <ErrorPage></ErrorPage>,
           children: [
             {
                 path:'/',
@@ -57,6 +61,14 @@ import CreativeStudy from "../Pages/Home/CreativeStudy/CreativeStudy";
                 <StudentProfile></StudentProfile>
               </PrivetRoute>
             },
+            {
+              path:'teacherRequest',
+              element: <TeacherRequest></TeacherRequest>
+            },
+            {
+              path:'users',
+              element: <Users></Users>
+            }
           ]
         }
       ]);

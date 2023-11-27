@@ -1,12 +1,48 @@
 import { useForm } from "react-hook-form";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
+import Swal from "sweetalert2";
+import useAuth from "../../../hooks/useAuth";
 
 const CreativeStudy = () => {
+    const axiosSecure= useAxiosSecure()
+    const {user} = useAuth()
     const {
         register,
+        reset,
         handleSubmit,
       } = useForm()
       const onSubmit = (data) =>{
-        console.log(data.phoneNumber);}
+        
+        const requesterData={
+            name:data.name,
+            image:data.imgUrl,
+            experience:data.experience,
+            title:data.title,
+            category:data.category,
+            email:user.email,
+            role:'student',
+            status:'pending'
+        } 
+
+        axiosSecure.post('/teacher/request', requesterData)
+        .then(res=>{
+          if(res.data.insertedId){
+            console.log('Your Requested has been Submitted');
+            reset()
+            Swal.fire({
+              position: "top-center",
+              icon: "success",
+              title: "Your Requested has been Submitted",
+              showConfirmButton: false,
+              timer: 1500
+            }); 
+          
+          }
+        })
+      
+        console.log(requesterData);
+    } 
+     
     return (
         <div>
        <div className="overflow-hidden">
@@ -25,17 +61,17 @@ const CreativeStudy = () => {
         <div className="mx-auto max-w-2xl sm:grid grid-cols-3 sm:space-x-3 p-3 bg-white border rounded-lg shadow-lg shadow-gray-100 dark:bg-slate-900 dark:border-gray-700 dark:shadow-gray-900/[.2]">
           <div className="pb-2 sm:pb-4 sm:flex-[1_0_0%]">
             <label htmlFor="hs-hero-name-1" className="block text-sm font-medium dark:text-white"><span className="sr-only"> Your Name</span></label>
-            <input type="text" name="foodName" id="hs-hero-name-1" className="py-3 px-4 block w-full border-transparent rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 sm:p-4 dark:bg-slate-900 dark:border-transparent dark:text-gray-400" placeholder=" Your Name"/>
+            <input type="text"{...register("name",{required: true})} id="hs-hero-name-1" className="py-3 px-4 block w-full border-transparent rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 sm:p-4 dark:bg-slate-900 dark:border-transparent dark:text-gray-400" placeholder=" Your Name"/>
           </div>
           <div className="pb-2 sm:pb-0 sm:flex-[1_0_0%]">
             <label htmlFor="hs-hero-name-1" className="block text-sm font-medium dark:text-white"><span className="sr-only">Image Url</span></label>
-            <input type="text" name="foodImage" id="hs-hero-name-1" className="py-3 px-4 block w-full border-transparent rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 sm:p-4 dark:bg-slate-900 dark:border-transparent dark:text-gray-400" placeholder=" Image Url"/>
+            <input type="text"  {...register("imgUrl",{required: true})} id="hs-hero-name-1" className="py-3 px-4 block w-full border-transparent rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 sm:p-4 dark:bg-slate-900 dark:border-transparent dark:text-gray-400" placeholder=" Image Url"/>
           </div>
           <div className="pb-2 sm:pb-0 sm:flex-[1_0_0%]">
-            <label htmlFor="hs-hero-name-1" className="block text-sm font-medium dark:text-white"><span className="sr-only">Food Quantity</span></label>
+            <label htmlFor="hs-hero-name-1" className="block text-sm font-medium dark:text-white"><span className="sr-only">Experience</span></label>
             <select
               defaultValue="default"
-                {...register("category",{required: true})}
+                {...register("experience",{required: true})}
                 className="select select-bordered w-full"
               >
                 <option disabled value="default">
@@ -48,10 +84,10 @@ const CreativeStudy = () => {
           </div>
           <div className="pt-2 sm:pt-0 sm:pl-3 border-t border-gray-200 sm:border-t-0 sm:border-l sm:flex-[1_0_0%] dark:border-gray-700">
             <label htmlFor="hs-hero-email-1" className="block text-sm font-medium dark:text-white"><span className="sr-only">Title</span></label>
-            <input type="text"  id="hs-hero-email-1" className="py-3 px-4 block w-full border-transparent rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 sm:p-4 dark:bg-slate-900 dark:border-transparent dark:text-gray-400" placeholder="Title"/>
+            <input type="text"  {...register("title",{required: true})} id="hs-hero-email-1" className="py-3 px-4 block w-full border-transparent rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 sm:p-4 dark:bg-slate-900 dark:border-transparent dark:text-gray-400" placeholder="Title"/>
           </div>
           <div className="pt-2 sm:pt-0 sm:pl-3 border-t border-gray-200 sm:border-t-0 sm:border-l sm:flex-[1_0_0%] dark:border-gray-700">
-            <label htmlFor="hs-hero-email-1" className="block text-sm font-medium dark:text-white"><span className="sr-only">Expired Date</span></label>
+            <label htmlFor="hs-hero-email-1" className="block text-sm font-medium dark:text-white"><span className="sr-only">Category</span></label>
             <select
               defaultValue="default"
                 {...register("category",{required: true})}
