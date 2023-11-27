@@ -13,6 +13,8 @@ import CreativeStudy from "../Pages/Home/CreativeStudy/CreativeStudy";
 import TeacherRequest from "../Pages/Dashboard/Admin/TeacherRequest";
 import Users from "../Pages/Dashboard/Admin/Users/Users";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
+import AddClass from "../Pages/Dashboard/Teacher/AddClass";
+import Myclass from "../Pages/Dashboard/Teacher/Myclass";
 
    
   export const Routes = createBrowserRouter([
@@ -68,6 +70,14 @@ import ErrorPage from "../Pages/ErrorPage/ErrorPage";
             {
               path:'users',
               element: <Users></Users>
+            },
+            {
+              path: 'addClass',
+              element: <AddClass></AddClass>
+            },
+            {
+              path: 'myClass',
+              element: <Myclass></Myclass>
             }
           ]
         }
