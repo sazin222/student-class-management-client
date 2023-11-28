@@ -7,7 +7,7 @@ import useClasses from "../../../hooks/useClasses";
 
 const ClassCard = ({ item }) => {
 const axiosSecure = useAxiosSecure()
-const [,,refetch]= useClasses()
+const [,refetch]= useClasses()
     const handelDeleted= id =>{
       console.log(id);
       Swal.fire({
@@ -25,7 +25,7 @@ const [,,refetch]= useClasses()
           if(res.data.deletedCount > 0){
             refetch()
             Swal.fire({
-              position: "top-end",
+              position: "top-center",
               icon: "success",
               title: "Your card has been deleted",
               showConfirmButton: false,
@@ -86,12 +86,17 @@ const [,,refetch]= useClasses()
         </div>
 
         <div className="flex gap-3 justify-center">
-          <button
+         {item?.status ==='pending' || item?.status ==='rejected'  ?  <button disabled
             type="button"
-            className="py-3 text-center px-4 inline-flex justify-center items-center gap-2 rounded-md bg-green-100 border border-transparent font-semibold text-green-500 hover:text-white hover:bg-green-100 focus:outline-none focus:ring-2 ring-offset-white focus:ring-green-500 focus:ring-offset-2 transition-all text-sm dark:focus:ring-offset-gray-800"
+            className="py-3 text-center px-4 inline-flex justify-center items-center gap-2 rounded-md bg-green-200 border border-transparent font-semibold text-white  focus:outline-none focus:ring-2 ring-offset-white focus:ring-green-500 focus:ring-offset-2 transition-all text-sm dark:focus:ring-offset-gray-800"
           >
             See Details
-          </button>
+          </button> : <button 
+            type="button"
+            className="py-3 text-center px-4 inline-flex justify-center items-center gap-2 rounded-md bg-green-500 border border-transparent font-semibold text-white hover:text-white hover:bg-green-100 focus:outline-none focus:ring-2 ring-offset-white focus:ring-green-500 focus:ring-offset-2 transition-all text-sm dark:focus:ring-offset-gray-800"
+          >
+            See Details
+          </button> }
           <Link to={`/dashboard/updateDetails/${item?._id}`}>
             <button
               type="button"

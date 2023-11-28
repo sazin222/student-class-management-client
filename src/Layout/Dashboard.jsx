@@ -5,9 +5,9 @@ import useRole from "../hooks/useRole";
 const Dashboard = () => {
     const [role] = useRole()
     return (
-     <div className="flex flex-col lg:flex-row">
-        <div className=" w-full  md:w-64 lg:min-h-screen bg-gray-300">
-         <ul className=" p-2 lg:p-5 flex-wrap flex flex-row lg:flex-col  gap-3 mt-4" >
+     <div className="flex ">
+        <div className=" w-36 lg:w-64 min-h-screen bg-gray-300">
+         <ul className=" p-2 flex flex-col  gap-3 mt-4" >
          {role.role === 'student' && <>
            <li className="font-bold ">
                   <NavLink to={'/dashboard/myEnrollClass'}
@@ -171,7 +171,9 @@ const Dashboard = () => {
          </ul>
         </div>
         <div className="flex-1">
-        <div>
+        <div> 
+
+          <h1 className="text-center text-3xl lg:text-5xl font-semibold mt-3">Welcome To Your Dashboard</h1>
           <Outlet></Outlet>
          </div>
         </div>

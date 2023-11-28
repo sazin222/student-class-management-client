@@ -9,7 +9,7 @@ const StudentProfile = () => {
     return (
         <div className='flex justify-center items-center h-screen'>
 
-        <div className='bg-white shadow-lg rounded-2xl w-3/5'>
+        <div className='bg-white shadow-lg rounded-2xl w-full lg:w-3/5'>
           <img
             alt='profile'
             src='https://wallpapercave.com/wp/wp10784415.jpg'
@@ -43,7 +43,6 @@ const StudentProfile = () => {
                  Phone Number
                   <span className='font-bold text-black '>{role.phone}</span>
                 </p>
-  
                
               </div>
             </div>

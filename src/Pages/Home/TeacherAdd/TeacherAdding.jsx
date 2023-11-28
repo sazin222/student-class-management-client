@@ -14,6 +14,12 @@ const TeacherAdding = () => {
  <div className="max-w-[85rem] my-10 mx-auto  px-6 sm:px-6 lg:px-6">
  
   <div className="grid lg:grid-cols-9 lg:gap-x-11 xl:gap-x-12 lg:items-center ">
+    
+    <div className="lg:col-span-5 mt-10  lg:mt-0">
+      <img className="w-full rounded-xl" src={picture} alt="Image Description"/>
+    </div>
+
+
     <div className="lg:col-span-4">
       <div className='flex '>
       <h1 className="block text-3xl font-bold text-green-600 sm:text-4xl md:text-5xl lg:text-6xl dark:text-white">Become an instructor</h1>
@@ -29,10 +35,6 @@ const TeacherAdding = () => {
        </button>
       </Link>
       </div>
-    </div>
-   
-    <div className="lg:col-span-5 mt-10  lg:mt-0">
-      <img className="w-full rounded-xl" src={picture} alt="Image Description"/>
     </div>
   </div>
  

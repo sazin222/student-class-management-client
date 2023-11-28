@@ -6,7 +6,6 @@ const AllClasses = () => {
   const  [classes, ,refetch] = useClasses()
   const axiosSecure = useAxiosSecure()
 
-
   const handelApproevd = async (item)=>{
 
        try {
@@ -28,7 +27,35 @@ const AllClasses = () => {
           } catch (error) {
             console.error("Error updating documents:", error);
           }
-      }
+      } 
+
+      const handelReject = async (item)=>{
+
+        try {
+          const response = await axiosSecure.patch(`/classes/rejected/${item._id}`, {
+          });
+            if (response.data.modifiedCount > 0) {
+              refetch()
+              Swal.fire({
+                position: "top-center",
+                icon: "success",
+                title: `${item?.title} is rejected Now!`,
+                showConfirmButton: false,
+                timer: 1500,
+              });
+            } else {
+              console.error("Error updating the second collection.");
+            }
+         
+        } catch (error) {
+          console.error("Error updating documents:", error);
+        }
+
+
+      
+       } 
+
+      
     
     return (
      <div>
@@ -90,7 +117,7 @@ const AllClasses = () => {
                          }
                 
                          { item?.status === 'approved'|| item?.status === 'rejected' ? <button disabled  className="btn p-1 bg-red-300 text-white rounded ">Reject</button>:
-                          <button  className="btn p-1 bg-red-500 text-white rounded ">Reject</button>
+                          <button onClick={()=>handelReject(item)}  className="btn p-1 bg-red-500 text-white rounded ">Reject</button>
                          } 
                         
                           </div>
