@@ -19,6 +19,7 @@ import UpdateDetails from "../Pages/Dashboard/Teacher/UpdateDetails";
 import AllClasses from "../Pages/Dashboard/Admin/AllClasses/AllClasses";
 import AllAddedClass from "../Pages/Dashboard/AllAddedClass/AllAddedClass";
 import ClassDetails from "../Pages/ClassDetails/ClassDetails";
+import Payment from "../Pages/Payment/Payment";
 
    
   export const Routes = createBrowserRouter([
@@ -49,6 +50,12 @@ import ClassDetails from "../Pages/ClassDetails/ClassDetails";
               path: '/class/payment/:id',
               element: <PrivetRoute>
                 <ClassDetails></ClassDetails>
+              </PrivetRoute>
+            },
+            {
+              path:'/pay/amount/:id',
+              element: <PrivetRoute>
+                <Payment></Payment>
               </PrivetRoute>
             }
           ]

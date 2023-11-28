@@ -50,8 +50,6 @@ const image_hosting_api= `https://api.imgbb.com/1/upload?key=${image_hosting_key
                 price: data.price,
                 description: data.description,
                 image: res.data.data.display_url,
-                
-
             }
 
             const classItemRes= await axiosSecure.patch(`/class/update/${classes?._id}`, classItem)
