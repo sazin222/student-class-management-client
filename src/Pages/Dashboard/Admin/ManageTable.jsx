@@ -7,15 +7,14 @@ const ManageTable = ({item, refetch}) => {
 
     const axiosSecure = useAxiosSecure()
     const handelApproevd = async user=>{
-
+         
         try {
-
             const response1 = await axiosSecure.patch(`/students/${user.email}`, {
             });
         
-            if (response1.data.modifiedCount > 0) {
+           if (response1.data.modifiedCount > 0) {
               
-              const response2 = await axiosSecure.patch(`/requestTeacher/${user._id}`, {
+         const response2 = await axiosSecure.patch(`/requestTeacher/${user._id}`, {
                
               });
         

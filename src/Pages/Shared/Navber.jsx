@@ -34,7 +34,7 @@ const Navber = () => {
             
             >Home</NavLink>
           
-            <NavLink to={"/allClasses"}
+            <NavLink to={"/allAddedClasses"}
              className={({ isActive, isPending }) =>
              isPending
                ? "pending"

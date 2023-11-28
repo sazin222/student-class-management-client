@@ -16,6 +16,8 @@ import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import AddClass from "../Pages/Dashboard/Teacher/AddClass";
 import Myclass from "../Pages/Dashboard/Teacher/Myclass";
 import UpdateDetails from "../Pages/Dashboard/Teacher/UpdateDetails";
+import AllClasses from "../Pages/Dashboard/Admin/AllClasses/AllClasses";
+import AllAddedClass from "../Pages/Dashboard/AllAddedClass/AllAddedClass";
 
    
   export const Routes = createBrowserRouter([
@@ -34,6 +36,13 @@ import UpdateDetails from "../Pages/Dashboard/Teacher/UpdateDetails";
               element: <PrivetRoute>
                 <CreativeStudy></CreativeStudy>
               </PrivetRoute>
+            },
+            {
+              path:'/allAddedClasses',
+              element: <PrivetRoute>
+                <AllAddedClass></AllAddedClass>
+              </PrivetRoute>
+
             }
           ]
         },
@@ -69,6 +78,10 @@ import UpdateDetails from "../Pages/Dashboard/Teacher/UpdateDetails";
               element: <TeacherRequest></TeacherRequest>
             },
             {
+              path:'allClass',
+              element: <AllClasses></AllClasses>
+            },
+            {
               path:'users',
               element: <Users></Users>
             },
@@ -83,7 +96,6 @@ import UpdateDetails from "../Pages/Dashboard/Teacher/UpdateDetails";
             {
               path: 'updateDetails/:id',
               element: <UpdateDetails></UpdateDetails>,
-              // loader: ({params})=> fetch(`http://localhost:5000/class/${params.id}`)
             }
           ]
         }
