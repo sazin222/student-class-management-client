@@ -12,13 +12,13 @@ const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY
 const image_hosting_api= `https://api.imgbb.com/1/upload?key=${image_hosting_key}`
 
 
-const UpdateDetails = () => {
-   const {id} =useParams()
-   console.log(id);
-   const [classes , setClass] = useState(null)
-    const {user,loading}= useAuth()
-    const axiosPublic = useAxiosPublic()
-    const axiosSecure = useAxiosSecure()
+ const UpdateDetails = () => {
+ const {id} =useParams()
+  console.log(id);
+ const [classes , setClass] = useState(null)
+ const {user,loading}= useAuth()
+ const axiosPublic = useAxiosPublic()
+ const axiosSecure = useAxiosSecure()
 
     useEffect(()=>{
         axiosSecure.get(`/class/${id}`)

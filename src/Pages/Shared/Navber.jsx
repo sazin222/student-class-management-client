@@ -128,7 +128,7 @@ const Navber = () => {
             Log out
           </button>
               
-            <NavLink to={'/dashboard/MyEnrollClass'}>
+            <NavLink to={'/dashboard'}>
               Dashboard
             </NavLink>
            

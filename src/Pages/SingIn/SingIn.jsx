@@ -8,9 +8,8 @@ const SingIn = () => {
   const axiosPublic = useAxiosPublic()
   const {singIn, singInGoogle, }= useAuth()
   const navigate = useNavigate()
-    const location = useLocation()
-   
-    const from = location?.state?.from?.pathname || "/"
+  const location = useLocation()
+  const from = location?.state?.from?.pathname || "/"
   const {
     register,
     handleSubmit,
@@ -45,7 +44,6 @@ const SingIn = () => {
       });
     });
   } 
-   
   const handelGoogleSingIn = ()=>{
     singInGoogle()
     .then(result=>{
@@ -62,7 +60,6 @@ const SingIn = () => {
         })
     })
   }
-
     return (
         <div className="relative overflow-hidden">
         <div className="mx-auto max-w-screen-md py-8 px-4 sm:px-6 md:max-w-screen-xl md:py-8 lg:py-12 md:px-8">
