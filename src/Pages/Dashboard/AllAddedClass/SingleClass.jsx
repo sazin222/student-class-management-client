@@ -50,12 +50,10 @@ const SingleClass = ({item}) => {
      
              <div className="flex gap-3 justify-center">
               <Link to={`/class/payment/${item?._id}`}>
-              <button
-                 type="button"
-                 className="py-3 text-center px-4 inline-flex justify-center items-center gap-2 rounded-md bg-green-400 border border-transparent font-semibold text-white hover:text-white hover:bg-green-300 focus:outline-none focus:ring-2 ring-offset-white focus:ring-green-500 focus:ring-offset-2 transition-all text-sm dark:focus:ring-offset-gray-800"
-               >
-                Enroll
-               </button>
+             
+         <button type="button" className="rounded-2xl border-2 border-dashed border-black bg-white px-6 py-3 font-semibold uppercase text-black transition-all duration-300 hover:translate-x-[-4px] hover:translate-y-[-4px] hover:rounded-md hover:shadow-[4px_4px_0px_black] active:translate-x-[0px] active:translate-y-[0px] active:rounded-2xl active:shadow-none">
+           Enroll
+         </button>
               </Link>
              </div>
               </div>

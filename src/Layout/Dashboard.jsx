@@ -1,11 +1,15 @@
 import { NavLink, Outlet } from "react-router-dom";
 import useRole from "../hooks/useRole";
+import { Helmet } from "react-helmet-async";
 
 
 const Dashboard = () => {
     const [role] = useRole()
     return (
      <div className="flex ">
+      <Helmet>
+        <title>Creative Study | Dashboard</title>
+      </Helmet>
         <div className=" w-36 lg:w-64 min-h-screen bg-gray-300">
          <ul className=" p-2 flex flex-col  gap-3 mt-4" >
          {role.role === 'student' && <>
@@ -160,7 +164,7 @@ const Dashboard = () => {
             >Home</NavLink></li>
           
             <li className="font-bold ">
-            <NavLink to={"/allClasses"}>All Classes</NavLink>
+            <NavLink to={"/allAddedClasses"}>All Classes</NavLink>
             </li>
          
            

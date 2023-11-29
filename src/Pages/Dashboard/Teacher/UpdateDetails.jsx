@@ -2,7 +2,6 @@ import { useForm } from "react-hook-form";
 import useAuth from "../../../hooks/useAuth";
 import useAxiosPublic from "../../../hooks/useAxiosPublic";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
-import { TbFidgetSpinner } from "react-icons/tb";
 import Swal from "sweetalert2";
 import {  useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
@@ -16,7 +15,7 @@ const image_hosting_api= `https://api.imgbb.com/1/upload?key=${image_hosting_key
  const {id} =useParams()
   console.log(id);
  const [classes , setClass] = useState(null)
- const {user,loading}= useAuth()
+ const {user}= useAuth()
  const axiosPublic = useAxiosPublic()
  const axiosSecure = useAxiosSecure()
 
@@ -51,7 +50,7 @@ const image_hosting_api= `https://api.imgbb.com/1/upload?key=${image_hosting_key
                 description: data.description,
                 image: res.data.data.display_url,
             }
-
+           console.log(classItem);
             const classItemRes= await axiosSecure.patch(`/class/update/${classes?._id}`, classItem)
             console.log(classItemRes.data);
             if(classItemRes.data.modifiedCount >0){
@@ -115,12 +114,7 @@ const image_hosting_api= `https://api.imgbb.com/1/upload?key=${image_hosting_key
     </div>
     <div className="text-center">
      <button type="submit" className=" text-center mx-auto py-3 px-4 flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold text-white bg-green-500 hover:bg-green-500 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 transition-all text-sm dark:focus:ring-offset-gray-800">
-    
-     {loading ? (
-            <TbFidgetSpinner className='animate-spin m-auto' />
-          ) : (
-            '  Update'
-          )}
+           Update
     </button>
      </div>
   </form>

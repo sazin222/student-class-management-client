@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import useAuth from "../../hooks/useAuth";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import MyEnrollDetails from "./MyEnrollDetails";
+import { Helmet } from "react-helmet-async";
 
 const MyEnrollClass = () => {
   const {user}= useAuth()
@@ -18,6 +19,9 @@ const MyEnrollClass = () => {
 
     return (
         <div>
+          <Helmet>
+        <title>Creative Study | My Enroll Class</title>
+      </Helmet>
             <h1 className="text-center font-semibold text-2xl mt-3"> Your total enroll class : {enrollClass?.length} </h1>
 
         <div className="grid grid-cols-1 mt-5 gap-3 lg:grid-cols-3">

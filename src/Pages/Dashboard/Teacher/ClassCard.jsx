@@ -3,11 +3,13 @@
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
-import useClasses from "../../../hooks/useClasses";
+// import useClasses from "../../../hooks/useClasses";
+import useClass from "../../../hooks/useClass";
 
 const ClassCard = ({ item }) => {
 const axiosSecure = useAxiosSecure()
-const [,refetch]= useClasses()
+// const [,refetch]= useClasses()
+const [,refetch] =useClass()
     const handelDeleted= id =>{
       console.log(id);
       Swal.fire({

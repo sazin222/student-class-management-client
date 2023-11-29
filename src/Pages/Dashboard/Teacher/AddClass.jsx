@@ -4,6 +4,7 @@ import useAxiosPublic from "../../../hooks/useAxiosPublic";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import { TbFidgetSpinner } from "react-icons/tb";
+import { Helmet } from "react-helmet-async";
 
 const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY
 const image_hosting_api= `https://api.imgbb.com/1/upload?key=${image_hosting_key}`
@@ -59,7 +60,9 @@ const AddClass = () => {
       }
     return (
         <div>
-           
+           <Helmet>
+        <title>Creative Study | Add Class</title>
+      </Helmet>
             <div>
             <div className="overflow-hidden">
   <div className="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8 py-20">

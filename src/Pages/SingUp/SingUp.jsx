@@ -4,6 +4,7 @@ import useAuth from "../../hooks/useAuth";
 import Swal from "sweetalert2";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
 import { TbFidgetSpinner } from "react-icons/tb";
+import { Helmet } from "react-helmet-async";
 
 
 const SingUp = () => {
@@ -57,7 +58,12 @@ const SingUp = () => {
       }
     
     return (
+       <>
+       <Helmet>
+        <title>Creative Study | SingUp</title>
+       </Helmet>
         <div className="relative overflow-hidden">
+          
         <div className="mx-auto max-w-screen-md py-7 px-4 sm:px-6 md:max-w-screen-xl md:py-9 lg:py-12 md:px-8">
           <div className="md:pr-8 md:w-1/2 xl:pr-0 xl:w-5/12">
             <h1 className="text-3xl text-gray-800 font-bold md:text-4xl md:leading-tight lg:text-5xl lg:leading-tight dark:text-gray-200">
@@ -125,6 +131,8 @@ const SingUp = () => {
       
         <div className="hidden md:block md:absolute md:top-0 md:left-1/2 md:right-0 h-full bg-[url('https://i.ibb.co/DkT7xpk/4957136-4957136.jpg')] bg-no-repeat bg-center bg-cover"></div>
       </div>
+        
+       </>
     );
 };
 

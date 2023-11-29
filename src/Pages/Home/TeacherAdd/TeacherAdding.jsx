@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import picture from '../../../assets/image/businessman-black-suit-holding-his-tasklist-makes-thumb-up.jpg'
+import DrawOutlineButton from '../../../utilis/DrawOutlineButton';
 
 const TeacherAdding = () => {
     return (
@@ -30,9 +31,12 @@ const TeacherAdding = () => {
       <div className="mt-6 lg:mt-12">
     
       <Link to={'/creativeStudy'}>
-      <button type="button" className="py-3 text-center px-4 inline-flex justify-center items-center gap-2 rounded-md bg-green-100 border border-transparent font-semibold text-green-500 hover:text-black hover:bg-green-100 focus:outline-none focus:ring-2 ring-offset-white focus:ring-green-500 focus:ring-offset-2 transition-all text-sm dark:focus:ring-offset-gray-800">
+      {/* <button type="button" className="py-3 text-center px-4 inline-flex justify-center items-center gap-2 rounded-md bg-green-100 border border-transparent font-semibold text-green-500 hover:text-black hover:bg-green-100 focus:outline-none focus:ring-2 ring-offset-white focus:ring-green-500 focus:ring-offset-2 transition-all text-sm dark:focus:ring-offset-gray-800">
       Start teaching today
-       </button>
+       </button> */}
+        <div className="grid place-content-center w-1/2 mx-auto rounded-full bg-slate-900 p-2">
+      <DrawOutlineButton>Start Teaching Today</DrawOutlineButton>
+    </div>
       </Link>
       </div>
     </div>

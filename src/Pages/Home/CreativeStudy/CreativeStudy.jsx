@@ -2,10 +2,13 @@ import { useForm } from "react-hook-form";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
 import useAuth from "../../../hooks/useAuth";
+import { Helmet } from "react-helmet-async";
+import useRole from "../../../hooks/useRole";
 
 const CreativeStudy = () => {
     const axiosSecure= useAxiosSecure()
     const {user} = useAuth()
+    const [role] = useRole()
     const {
         register,
         reset,
@@ -42,9 +45,11 @@ const CreativeStudy = () => {
       
         console.log(requesterData);
     } 
-     
     return (
-        <div>
+     <div>
+          <Helmet>
+        <title>Creative Study | Creative study</title>
+      </Helmet>
        <div className="overflow-hidden">
   <div className="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8 py-20">
     <div className="relative mx-auto max-w-4xl grid space-y-5 sm:space-y-10">
@@ -57,7 +62,7 @@ const CreativeStudy = () => {
         </h1>
       </div>
      
-      <form onSubmit={handleSubmit(onSubmit)}>
+     { role?.role === 'student' ? <form onSubmit={handleSubmit(onSubmit)}>
         <div className="mx-auto max-w-2xl sm:grid grid-cols-3 sm:space-x-3 p-3 bg-white border rounded-lg shadow-lg shadow-gray-100 dark:bg-slate-900 dark:border-gray-700 dark:shadow-gray-900/[.2]">
           <div className="pb-2 sm:pb-4 sm:flex-[1_0_0%]">
             <label htmlFor="hs-hero-name-1" className="block text-sm font-medium dark:text-white"><span className="sr-only"> Your Name</span></label>
@@ -104,14 +109,18 @@ const CreativeStudy = () => {
               </select>
           </div>
         
-         
         </div>
          <div className="text-center">
          <button type="submit" className=" text-center mx-auto py-3 px-4 flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold text-white bg-green-500 hover:bg-green-500 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 transition-all text-sm dark:focus:ring-offset-gray-800">
          Submit for review
         </button>
          </div>
-      </form>
+      </form> : <div>
+         {role?.role === 'admin' ?<h1 className="text-center text-2xl font-bold mt-7">You are already Admin </h1> :
+         <h1 className="text-center text-2xl font-bold mt-7">You are already Teacher </h1>
+         }
+      </div>
+      }
      
       <div className="hidden absolute top-2/4 left-0 transform -translate-y-2/4 -translate-x-40 md:block lg:-translate-x-80" aria-hidden="true">
         <svg className="w-52 h-auto" width="717" height="653" viewBox="0 0 717 653" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -131,7 +140,7 @@ const CreativeStudy = () => {
     </div>
   </div>
 </div>
-      </div>
+      </div> 
     );
 };
 

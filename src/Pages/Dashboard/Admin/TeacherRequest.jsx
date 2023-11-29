@@ -1,6 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import ManageTable from "./ManageTable";
+import { Helmet } from "react-helmet-async";
 
 const TeacherRequest = () => {
   const axiosSecure = useAxiosSecure();
@@ -14,6 +15,9 @@ const TeacherRequest = () => {
   console.log(requestTeacher);
   return (
     <div className="mt-4">
+      <Helmet>
+        <title>Creative Study | Teacher Request</title>
+      </Helmet>
       <h1 className="text-center text-2xl">
         {" "}
         Total Request For Teacher: {requestTeacher.length}

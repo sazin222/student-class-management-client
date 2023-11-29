@@ -6,6 +6,7 @@ import { useQuery } from "@tanstack/react-query";
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
 import CheckoutForm from "./CheckoutForm";
+import { Helmet } from "react-helmet-async";
 
 const stripePromise = loadStripe(import.meta.env.VITE_PAYMENT_GATEWAY);
 
@@ -22,6 +23,9 @@ const Payment = () => {
   });
   return (
     <div>
+      <Helmet>
+        <title>Creative Study | Payment</title>
+      </Helmet>
         <h1 className="text-center mt-3 text-2xl font-bold">Please payment For Your class</h1>
       <div>
         <Elements stripe={stripePromise}>

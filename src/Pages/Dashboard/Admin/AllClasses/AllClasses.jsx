@@ -2,6 +2,7 @@ import Swal from "sweetalert2";
 import useClasses from "../../../../hooks/useClasses";
 import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 
+
 const AllClasses = () => {
   const  [classes, ,refetch] = useClasses()
   const axiosSecure = useAxiosSecure()
@@ -50,15 +51,12 @@ const AllClasses = () => {
         } catch (error) {
           console.error("Error updating documents:", error);
         }
-
-
       
        } 
-
-      
     
     return (
      <div>
+      
      <h1 className="text-center font-bold mt-3 text-2xl"> Total Request Class: {classes.length}</h1>
 
      <div className="-m-1.5 mt-5 overflow-x-auto">

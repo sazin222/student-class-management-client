@@ -4,6 +4,7 @@ import useAuth from '../../hooks/useAuth';
 import { useForm } from 'react-hook-form';
 import Swal from 'sweetalert2';
 import useAxiosPublic from '../../hooks/useAxiosPublic';
+import { Helmet } from 'react-helmet-async';
 const SingIn = () => {
   const axiosPublic = useAxiosPublic()
   const {singIn, singInGoogle, }= useAuth()
@@ -62,6 +63,10 @@ const SingIn = () => {
     })
   }
     return (
+       <>
+       <Helmet>
+        <title>Creative Study | SingIn</title>
+       </Helmet>
         <div className="relative overflow-hidden">
         <div className="mx-auto max-w-screen-md py-8 px-4 sm:px-6 md:max-w-screen-xl md:py-8 lg:py-12 md:px-8">
           <div className="md:pr-8 md:w-1/2 xl:pr-0 xl:w-5/12">
@@ -165,6 +170,7 @@ const SingIn = () => {
 
         <div className="hidden md:block md:absolute md:top-0 md:left-1/2 md:right-0 h-full  bg-no-repeat bg-center bg-cover" style={{ backgroundImage: `url(${loginLogo})` }}></div>
       </div>
+       </>
     );
 };
 
