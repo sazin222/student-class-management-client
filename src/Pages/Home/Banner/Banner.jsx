@@ -44,7 +44,7 @@ const Banner = () => {
           </div>
         </div>
       </div>
-    </div> 
+           </div> 
    
         </div>
         <Banner2></Banner2>
