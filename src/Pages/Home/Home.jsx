@@ -2,6 +2,7 @@
 import AboutUS from "./AboutUS/AboutUS";
 import Banner from "./Banner/Banner";
 import Class from "./Class/Class";
+import Feedback from "./Feedback/Feedback";
 import PatnersBrand from "./PatnersBrand/PatnersBrand";
 import TeacherAdding from "./TeacherAdd/TeacherAdding";
 
@@ -12,6 +13,7 @@ const Home = () => {
             <Banner></Banner>
             <PatnersBrand></PatnersBrand>
             <Class></Class>
+            <Feedback></Feedback>
             <AboutUS></AboutUS>
             <TeacherAdding></TeacherAdding>
             

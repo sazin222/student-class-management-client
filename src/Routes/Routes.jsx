@@ -22,6 +22,7 @@ import ClassDetails from "../Pages/ClassDetails/ClassDetails";
 import Payment from "../Pages/Payment/Payment";
 import AdminRoutes from "./AdminRoutes";
 import TeacherRoutes from "./TeacherRoutes";
+import EnrollSingleDetails from "../Pages/Dashboard/Teacher/EnrollSingleDetails";
 
    
   export const Routes = createBrowserRouter([
@@ -81,6 +82,13 @@ import TeacherRoutes from "./TeacherRoutes";
              element: <PrivetRoute>
               <MyEnrollClass></MyEnrollClass>
              </PrivetRoute>
+            },
+            {
+              path:'myEnroll-class/:id',
+              element: <PrivetRoute>
+                <EnrollSingleDetails></EnrollSingleDetails>
+              </PrivetRoute>
+
             },
 
             { 
