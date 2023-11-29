@@ -11,7 +11,7 @@ const useRole = () => {
      const res = await axiosSecure.get(`/students/${user?.email}`)
      return res.data
     } ,
-    queryKey: ['role'],
+    queryKey: ['role , isLoading'],
   })
 
   return [role, isLoading]

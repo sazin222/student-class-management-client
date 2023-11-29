@@ -51,7 +51,8 @@ const SingIn = () => {
         const userInfo= {
             email: result.user?.email,
             name: result.user?.displayName,
-            photo:result.user?.photoURL
+            photo:result.user?.photoURL,
+            role: 'student'
         }
         axiosPublic.post('/students', userInfo)
         .then(res=>{

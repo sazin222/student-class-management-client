@@ -20,6 +20,8 @@ import AllClasses from "../Pages/Dashboard/Admin/AllClasses/AllClasses";
 import AllAddedClass from "../Pages/Dashboard/AllAddedClass/AllAddedClass";
 import ClassDetails from "../Pages/ClassDetails/ClassDetails";
 import Payment from "../Pages/Payment/Payment";
+import AdminRoutes from "./AdminRoutes";
+import TeacherRoutes from "./TeacherRoutes";
 
    
   export const Routes = createBrowserRouter([
@@ -89,27 +91,43 @@ import Payment from "../Pages/Payment/Payment";
             },
             {
               path:'teacherRequest',
-              element: <TeacherRequest></TeacherRequest>
+              element: <PrivetRoute>
+                <AdminRoutes>
+                 <TeacherRequest></TeacherRequest>
+              </AdminRoutes>
+              </PrivetRoute>
             },
             {
               path:'allClass',
-              element: <AllClasses></AllClasses>
+              element: <PrivetRoute>
+                <AdminRoutes>
+                 <AllClasses></AllClasses>
+              </AdminRoutes>
+              </PrivetRoute>
             },
             {
               path:'users',
-              element: <Users></Users>
+              element: <AdminRoutes>
+                 <Users></Users>
+              </AdminRoutes>
             },
             {
               path: 'addClass',
-              element: <AddClass></AddClass>
+              element: <TeacherRoutes>
+                <AddClass></AddClass>
+              </TeacherRoutes>
             },
             {
               path: 'myClass',
-              element: <Myclass></Myclass>
+              element: <TeacherRoutes>
+                <Myclass></Myclass>
+              </TeacherRoutes>
             },
             {
               path: 'updateDetails/:id',
-              element: <UpdateDetails></UpdateDetails>,
+              element: <TeacherRoutes>
+                <UpdateDetails></UpdateDetails>
+              </TeacherRoutes>,
             }
           ]
         }
